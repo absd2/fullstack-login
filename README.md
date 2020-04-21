@@ -9,7 +9,7 @@ You can run the server normally with **NodeJS** by using:
 npm run start
 ```
 
-It's also possible to run the server with **Nodemon** - who will keep track of all server files and restart it automatticaly any changes are detected - by using:
+It's also possible to run the server with **Nodemon** - who will keep track of all server files and restart it automatticaly if any changes are detected - by using:
 ```
 npm run dev
 ```
@@ -29,5 +29,4 @@ const serverPort = 8080;
 
 ## How it works
 The scheme below can give you an overall idea about how communication flows between all parts.
-
 ![Scheme](scheme.png)
