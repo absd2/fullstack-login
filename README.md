@@ -1,5 +1,5 @@
-# Back-End Login Authentication
-With this project I was able to learn my first back-end technologies, such as **NodeJS**, **Express**, **Nodemon**, **CORS**, etc.
+# Full-Stack Login Authentication Process
+With this project I was able to learn my first back-end technologies, such as **NodeJS**, **Express**, **Nodemon**, **CORS**, etc. It was also an opportunity for me dive into the whole full-stack communication process (that includes HTTP requests, responses, methods, JSON, AJAX, etc).
 
 I could also use a relational database (in this case, **mySQL**) to store the data that would be used to validate my front-end form.
 
