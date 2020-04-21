@@ -1,15 +1,15 @@
 # Back-End Login Authentication
+With this project I was able to learn my first back-end technologies, such as **NodeJS**, **Express**, **Nodemon**, **CORS**, etc.
 
-With this project I was able to learn my first back-end technologies, such as NodeJS, Express, Nodemon, CORS.
+I could also use a relational database (in this case, **mySQL**) to store the data that would be used to validate my front-end form.
 
-I could also use a relational database (in this case, mySQL) to store the data that would be used to validate my front-end form.
-
-You can run the server normally with NodeJS by using:
+## How to run
+You can run the server normally with **NodeJS** by using:
 ```
 npm run start
 ```
 
-It's also possible to run the server with Nodemon - who will keep track of all server files and restart it automatticaly any changes are detected - by using:
+It's also possible to run the server with **Nodemon** - who will keep track of all server files and restart it automatticaly any changes are detected - by using:
 ```
 npm run dev
 ```
