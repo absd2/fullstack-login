@@ -20,7 +20,9 @@ While signing up, you'll be able to receive one of three different response code
 - **200**: if your signup was made sucessfully.
 - **201**: if any error happened while trying to add you in the database.
 - **202**: if you have already signed up before.
-
+#### Edit
+- **300**: if your request to edit your data was sucessful.
+- **301**: if your request to edit your data was **NOT** sucessful.
 
 ## How to run
 You can run the server normally with **NodeJS** by using:
