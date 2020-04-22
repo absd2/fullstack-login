@@ -35,9 +35,11 @@ $(document).ready(function() {
                 // User was authenthicated.
                 $('.spinner-grow').css('display', 'none');
                 
+                // Hides login area.
                 $('#title-area').css('display', 'none');
                 $('#form-div').css('display', 'none');
 
+                // Shows logged area and fill up data.
                 $('#logged-area').css('display', '');
                 $('.form-control').prop('disabled', true);
                 $('#nome-after').val(data.nome);
@@ -46,6 +48,7 @@ $(document).ready(function() {
                 $('#horarioCadastro-after').val(data.horariocad);
                 $('#senha-after').val(data.pass);
                 
+                // Manipulates adress.
                 var elementosEndereco = data.endereco.split('/');
                 $('#logradouro-after').val(elementosEndereco[0]);
                 $('#numero-after').val(elementosEndereco[1]);
@@ -84,6 +87,7 @@ $(document).ready(function() {
 // :::::::::::::::::::::::;;
 // :::::::::::::::::::::::;;
 
+// Stores databases's original values.
 var nomeOriginal = '';
 var cpfOriginal = '';
 var sexoOriginal = '';
@@ -92,6 +96,7 @@ var numeroOriginal = '';
 var cepOriginal = '';
 var passOriginal = '';
 
+// Stores new values - in case of editing data on the database.
 var nomeNovo = '';
 var cpfNovo = '';
 var sexoNovo = '';
@@ -100,14 +105,17 @@ var numeroNovo = '';
 var cepNovo= '';
 var passNovo = '';
 
+
 function editData() {
+    // Layout differences.
     $('#abortEditingButton').css('display', '');
     $('#saveDataButton').css('display', '');
-    $('#backButton').prop('disabled', true);
-    $('.form-editable').prop('disabled', false);
+    $('#backButton').prop('disabled', true); // prevents from going back without saving or aborting changes.
+    $('.form-editable').prop('disabled', false); // enables form editing.
     $('#login-fail-success-after').css('display', 'none');
     $('#login-fail-alert-after').css('display', 'none');
 
+    // Stores all original data.
     nomeOriginal = $('#nome-after').val();
     cpfOriginal = $('#cpf-after').val();
     sexoOriginal = $('#sexo-after').val();
@@ -124,6 +132,7 @@ function abortEditing() {
     $('#backButton').prop('disabled', false);
     $('.form-editable').prop('disabled', true);
 
+    // Fill up the form again, but with original data.
     $('#nome-after').val(nomeOriginal);
     $('#cpf-after').val(cpfOriginal);
     $('#sexo-after').val(sexoOriginal);
@@ -139,6 +148,7 @@ function saveData() {
     $('#saveDataButton').css('display', 'none');
     $('#backButton').prop('disabled', false);
 
+    // Stores new data.
     nomeNovo = $('#nome-after').val();
     cpfNovo = $('#cpf-after').val();
     sexoNovo = $('#sexo-after').val();
@@ -147,6 +157,7 @@ function saveData() {
     cepNovo = $('#cep-after').val();
     passNovo = $('#senha-after').val();
 
+    // Prepares JSON object.
     var newData = {
         nomeNovo,
         cpfNovo,
@@ -157,7 +168,7 @@ function saveData() {
         passNovo
     }
 
-
+    // Sends object.
     fetch(server_url + '/edit', {
         method: 'POST',
         body: JSON.stringify(newData),
@@ -168,9 +179,11 @@ function saveData() {
         return response.json();
     }).then(function(data) {
         if(data.status == 300) {
+            // If data was sucessfully edited.
             $('#login-fail-alert-after').css('display', 'none');
             $('#login-success-alert-after').css('display', '');
         }else{
+            // If data was NOT sucessfully edited.
             $('#login-fail-success-after').css('display', 'none');
             $('#login-fail-alert-after').css('display', '');
         }
