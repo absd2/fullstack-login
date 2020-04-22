@@ -39,9 +39,9 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row align-items-center">
                 <div class="col-9" id="text-signup-div">
-                    <span id="text-signup">Não possui login? <a href="cadastro.html"><b>Faça seu cadastro</b></a></span>
+                    <span>Não possui login? <a href="cadastro.html"><b>Faça seu cadastro</b></a></span>
                 </div>
 
                 <div id="spinner-div" class="col-3" style="text-align: right;">
@@ -54,11 +54,88 @@
     </div>
 
     <div class="container-sm" id="alert-area">
-        <div class="alert alert-success" id="login-sucess-alert" style="display: none;" role="alert">
-            Seu login foi realizado com sucesso!
-        </div>
         <div class="alert alert-danger" id="login-fail-alert" style="display: none;" role="alert">
             Algo deu errado. Confira os dados informados e tente novamente.
+        </div>
+    </div>
+
+
+    <!-- AFTER LOGIN AREA -->
+    <div class="container-lg" id="logged-area" style="display: none;">
+        <div id="container-content">
+            <h1>Ficha do Usuário</h1>
+
+            <div class="row">
+                <div class="col">
+                    <label><b>Nome:</b></label>
+                    <input id="nome-after" maxlength="150" type="text" disabled class="form-control form-editable">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label><b>CPF:</b></label>
+                    <input id="cpf-after" maxlength="11" type="text" disabled class="form-control form-editable">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label><b>Sexo:</b></label>
+                    <select id="sexo-after" class="form-control form-editable" disabled>
+                        <option value="M">Masculino</option>
+                        <option value="F">Feminino</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label><b>Horário de cadastro:</b></label>
+                    <input id="horarioCadastro-after" type="text" disabled class="form-control">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-3">
+                    <label><b>CEP:</b></label>
+                    <input id="cep-after" maxlength="8" type="text" disabled class="form-control form-editable">
+                </div>
+
+                <div class="col-6">
+                    <label><b>Logradouro:</b></label>
+                    <input id="logradouro-after" maxlength="50" type="text" disabled class="form-control">
+                </div>
+
+                <div class="col-3">
+                    <label><b>Número:</b></label>
+                    <input id="numero-after" type="text" maxlength="10" disabled class="form-control form-editable">
+                </div>
+            </div>
+
+            <div class="row" id="buttons-row">
+                <div class="col-3">
+                    <a href="index.html"><button id="backButton" class="btn btn-primary">Voltar</button></a>
+                </div>
+                <div class="col-9" id="edit-buttons">
+                    <div class="spinner-grow text-primary" style="display: none; position: relative; top: 8px;" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>  
+
+                    <button onclick='abortEditing()' id="abortEditingButton" class="btn btn-outline-warning" style="display: none;">Cancelar edição</button>
+                    <button onclick='saveData()' id="saveDataButton" class="btn btn-outline-success" style="display: none;">Salvar edição</button>
+                    <button onclick='editData()' id="editDataButton" class="btn btn-outline-danger">Editar dados</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-sm" id="alert-area-after">
+        <div class="alert alert-success" id="login-success-alert-after" style="display: none;" role="alert">
+            Seus dados foram alterados com êxito!
+        </div>
+        <div class="alert alert-danger" id="login-fail-alert-after" style="display: none;" role="alert">
+            Não foi possível realizar a alteração dos seus dados. Tente novamente.
         </div>
     </div>
 </body>

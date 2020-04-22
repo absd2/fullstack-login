@@ -52,7 +52,12 @@ app.post('/login', function(req, res) {
         if(typeof(results[0]) != 'undefined') {
             // Found user.
             res.json({
-                'status': '100'
+                'status': '100',
+                'nome': results[0].nome,
+                'cpf': results[0].cpf,
+                'sexo': results[0].sexo,
+                'horariocad': results[0].horarioCadastro,
+                'endereco': results[0].endereco
             });
         }else{
             // Didn't found user.
@@ -69,6 +74,7 @@ app.post('/login', function(req, res) {
 app.post('/cadastro', function(req, res) {
     console.log('');
     console.log('Received POST request on \'/cadastro\' path.');
+    
     // Retrieves all data sent by client.
     var cpf = req.body.cpf;
     var pass = req.body.pass;
@@ -79,7 +85,7 @@ app.post('/cadastro', function(req, res) {
     var nome = req.body.nome;
     var logradouro = req.body.logradouro;
 
-    var endereco = logradouro + ', ' + numero + ' [' + cep + ']';
+    var endereco = logradouro + '/' + numero + '/' + cep;
 
     // Verifies if user is already signed up.
     var selectQuery = 'SELECT * FROM login.users WHERE cpf = \'' + cpf + '\'';
@@ -115,3 +121,37 @@ app.post('/cadastro', function(req, res) {
     console.log('');
 });
 
+
+// POST '/edit' PATH
+app.post('/edit', function(req, res) {
+    console.log('');
+    console.log('Received POST request on \'/edit\' path.');
+
+    var nome = req.body.nomeNovo;
+    var cpf = req.body.cpfNovo;
+    var sexo = req.body.sexoNovo;
+    var logradouro = req.body.logradouroNovo;
+    var numero = req.body.numeroNovo;
+    var cep = req.body.cepNovo;
+
+    var endereco = logradouro + '/' + numero + '/' + cep;
+
+    var updateQuery = 'UPDATE login.users SET cpf = \'' + cpf + '\', sexo = \'' + sexo + '\', endereco = \'' + endereco + '\', nome = \'' + nome + '\' WHERE cpf = \'' + cpf + '\'';
+
+    db.query(updateQuery, function(errors, results, fields) {
+        if(typeof(results)!='undefined') {
+            // Data updated.
+            res.json({
+                'status': '300'
+            });
+        }else{
+            // Data not updated.
+            res.json({
+                'status': '301'
+            });
+        }
+    });
+
+    console.log('Request responded.');
+    console.log('');
+});
