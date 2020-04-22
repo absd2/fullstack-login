@@ -1,0 +1,68 @@
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #242424;
+}
+
+#title-area{
+    position: relative;
+    top: 10%;
+}
+
+#title-area h1 {
+    color: white;
+    text-align: center;
+}
+
+#form-div {
+    background-color: #efefef;
+    max-width: 500px;
+    position: relative;
+    top: 12%;
+    padding: 40px;
+}
+
+#spinner-div {
+    margin-top: 15px;
+    height: 34.5px;
+}
+
+.row {
+    margin: 0 0 10px 0;
+}
+
+.col-3, .col-4, .col-8, .col-6, .col-9, .col-12, .col {
+    padding: 0 10px;
+}
+
+.alert {
+    margin: 0;
+}
+
+#submit {
+    position: relative;
+    top: 20px;
+}
+
+#alert-area {
+    max-width: 500px;
+    position: relative;
+    top: 12%;
+    margin-top: 20px;
+    padding: 0;
+}
+
+#text-signup-div {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+#text-signup {
+    position: relative;
+    top: 30%;
+}

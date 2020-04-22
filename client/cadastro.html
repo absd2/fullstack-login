@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Cadastro</title>
+
+    <link rel='stylesheet' type='text/css' href='node_modules/normalize.css/normalize.css'>
+    <link rel='stylesheet' type='text/css' href='node_modules/bootstrap/dist/css/bootstrap.css'>
+    <link rel='stylesheet' type='text/css' href='css/style_cadastro.css'>
+    
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src='js/script_cadastro.js'></script>
+</head>
+<body>
+    <div class="container-fluid" id="title-area">
+        <h1>Cadastro</h1>
+    </div>
+
+    <div class="container-sm" id="form-div">
+        <form>
+            <div class="row">
+                <div class="col-12">
+                    <label><b>Nome completo:</b></label>
+                    <input autofocus maxlength="150" class="form-control" type="text" id="nome" placeholder="Fulano da Silva" autocomplete="off">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-8">
+                    <label><b>CPF </b>(somente números):</label>
+                    <input maxlength="11" class="form-control" type="text" id="cpf" placeholder="12345678910" autocomplete="off">
+                </div>    
+                <div class="col-4">
+                    <label><b>Sexo:</b></label>
+                    <select class="form-control" id="sexo">
+                        <option value="M">Masculino</option>
+                        <option value="F">Feminino</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <label><b>CEP:</b></label>
+                    <input type="text" class="form-control" placeholder="00000000" id="cep" autocomplete="off" maxlength="8">
+                </div>
+                <div class="col-6">
+                    <label><b>Número:</b></label>
+                    <input type="text" class="form-control" id="numero" autocomplete="off" maxlength="8">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <label><b>Rua:</b></label>
+                    <input type="text" disabled readonly id="rua" class="form-control">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label><b>Senha:</b></label>
+                    <input type="password" class="form-control" id="password" maxlength="20">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-primary btn-block" type="submit" id="submit">Cadastre-se</button>
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom: 0;">
+                <div class="col-9" id="text-signup-div">
+                    <span id="text-signup">Já possui um cadastro? <a href="index.html"><b>Faça seu login.</b></a></span>
+                </div>
+
+                <div id="spinner-div" class="col-3" style="text-align: right; margin-top: 20px">
+                    <div class="spinner-grow text-primary" style="display: none;" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+        <div class="container-sm" id="alert-area">
+            <div class="alert alert-success" id="login-sucess-alert" style="display: none;" role="alert">
+                Seu cadastro foi realizado com sucesso!
+            </div>
+            <div class="alert alert-danger" id="login-fail-alert" style="display: none;" role="alert">
+                Algo deu errado. Confira os dados informados e tente novamente.
+            </div>
+            <div class="alert alert-warning" id="login-registered-alert" style="display: none;" role="alert">
+                Você já está cadastrado em nossa base de dados. Faça seu login clicando <a href="index.html"><b>aqui</b></a>.
+            </div>
+        </div>
+</body>
+</html>
