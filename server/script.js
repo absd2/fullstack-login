@@ -57,7 +57,8 @@ app.post('/login', function(req, res) {
                 'cpf': results[0].cpf,
                 'sexo': results[0].sexo,
                 'horariocad': results[0].horarioCadastro,
-                'endereco': results[0].endereco
+                'endereco': results[0].endereco,
+                'pass': results[0].pass
             });
         }else{
             // Didn't found user.
@@ -133,10 +134,11 @@ app.post('/edit', function(req, res) {
     var logradouro = req.body.logradouroNovo;
     var numero = req.body.numeroNovo;
     var cep = req.body.cepNovo;
+    var pass = req.body.passNovo;
 
     var endereco = logradouro + '/' + numero + '/' + cep;
 
-    var updateQuery = 'UPDATE login.users SET cpf = \'' + cpf + '\', sexo = \'' + sexo + '\', endereco = \'' + endereco + '\', nome = \'' + nome + '\' WHERE cpf = \'' + cpf + '\'';
+    var updateQuery = 'UPDATE login.users SET cpf = \'' + cpf + '\', sexo = \'' + sexo + '\', endereco = \'' + endereco + '\', pass = \'' + pass + '\', nome = \'' + nome + '\' WHERE cpf = \'' + cpf + '\'';
 
     db.query(updateQuery, function(errors, results, fields) {
         if(typeof(results)!='undefined') {

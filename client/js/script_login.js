@@ -44,6 +44,7 @@ $(document).ready(function() {
                 $('#cpf-after').val(data.cpf);
                 $('#sexo-after').val(data.sexo);
                 $('#horarioCadastro-after').val(data.horariocad);
+                $('#senha-after').val(data.pass);
                 
                 var elementosEndereco = data.endereco.split('/');
                 $('#logradouro-after').val(elementosEndereco[0]);
@@ -89,6 +90,7 @@ var sexoOriginal = '';
 var logradouroOriginal = '';
 var numeroOriginal = '';
 var cepOriginal = '';
+var passOriginal = '';
 
 var nomeNovo = '';
 var cpfNovo = '';
@@ -96,6 +98,7 @@ var sexoNovo = '';
 var logradouroNovo = '';
 var numeroNovo = '';
 var cepNovo= '';
+var passNovo = '';
 
 function editData() {
     $('#abortEditingButton').css('display', '');
@@ -112,6 +115,7 @@ function editData() {
     logradouroOriginal = $('#logradouro-after').val();
     numeroOriginal = $('#numero-after').val();
     cepOriginal = $('#cep-after').val();
+    passOriginal = $('#senha-after').val();
 }
 
 function abortEditing() {
@@ -141,6 +145,7 @@ function saveData() {
     logradouroNovo = $('#logradouro-after').val();
     numeroNovo = $('#numero-after').val();
     cepNovo = $('#cep-after').val();
+    passNovo = $('#senha-after').val();
 
     var newData = {
         nomeNovo,
@@ -148,7 +153,8 @@ function saveData() {
         sexoNovo,
         logradouroNovo,
         numeroNovo,
-        cepNovo
+        cepNovo,
+        passNovo
     }
 
 
