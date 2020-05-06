@@ -10,7 +10,7 @@ The scheme below can give you an overall idea about how communication flows betw
 
 
 ## Response codes
-Every time you send a request to the server, you'll get a JSON response code for your request. The response codes start with **1** if you were trying to login, **2** if you were trying to sign up, and **3** if you were trying to edit your data.
+Every time you send a request to the server, you'll get a JSON response code for your request. The response codes start with **1** if you were trying to login, **2** if you were trying to sign up, or **3** if you were trying to edit your data.
 #### Login
 You'll get one of two different response codes from the server if you try to login. These are:
 - **100**: if your credentials were authenticaded.
